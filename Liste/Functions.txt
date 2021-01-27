@@ -1,0 +1,22 @@
+def
+create
+tete
+queue
+estvide
+insertete
+appartient
+insertXY
+insertQueue
+supprimer
+creation IT
+creation RecT RecNT
+parcours
+affiche 
+dernier 
+insertKPos
+double 
+plus grand 
+occurence
+recherche
+remdup
+
