@@ -13,14 +13,14 @@ typedef struct cellule
 }*Liste;
 
 Liste createNode(int x,Liste l);
-int tete(Liste l);
-Liste queue(Liste l);
-int estVide(Liste l);
-Liste insertTete(int x,Liste l);
-int appartient(int x,Liste l);
-Liste insertXY(int x,int y,Liste l);
-Liste insertQueue(int x,Liste l);
-Liste supprimer(int x,Liste l);
+int head(Liste l);
+Liste tail(Liste l);
+int isEmpty(Liste l);
+Liste insertHead(int x,Liste l);
+int isPresent(int x,Liste l);
+Liste insertYAfterX(int x,int y,Liste l);
+Liste insertTail(int x,Liste l);
+Liste deleteX(int x,Liste l);
 
 Liste creationIT(int nombre);
 Liste createRecT(int x,Liste l);

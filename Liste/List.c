@@ -1,4 +1,4 @@
-#include "Liste.h"
+#include "List.h"
 
 Liste createNode(int x,Liste l){
 	Liste L = malloc(sizeof(Liste));
@@ -7,25 +7,25 @@ Liste createNode(int x,Liste l){
 	return L;
 }
 
-int tete(Liste l){
+int head(Liste l){
 	return l->valeur;
 }
-Liste queue(Liste l) {
+Liste tail(Liste l) {
 	return l->suivant;
 }
 
-int estVide(Liste l){ 
+int isEmpty(Liste l){ 
 	if(l == NULL){ 
 		return 1;
 	}
 	return 0;
 }
 
-Liste insertTete(int x,Liste l){
+Liste insertHead(int x,Liste l){
 	return createNode(x,l);
 }
 
-int appartient(int x,Liste l){
+int isPresent(int x,Liste l){
 	 Liste temp = l;
 	 while(estVide(temp)!=1){
 		  if(tete(temp) == x){ 
@@ -36,7 +36,7 @@ int appartient(int x,Liste l){
 	 return 0;
 }
 
-Liste insertXY(int x,int y,Liste l){ 
+Liste insertYAfterX(int x,int y,Liste l){ 
 	Liste temp = l;
 	int tours = 0;
 	while(estVide(temp)!= 1){ 
@@ -51,7 +51,7 @@ Liste insertXY(int x,int y,Liste l){
 	return l;
 }
 
-Liste insertQueue(int x,Liste l){
+Liste insertTail(int x,Liste l){
 	Liste temp = l;
 	Liste result = createNode(x,NULL);
 
@@ -69,7 +69,7 @@ Liste insertQueue(int x,Liste l){
 	return l;
 }
 
-Liste supprimer(int x,Liste l){
+Liste deleteX(int x,Liste l){
 	Liste temp = l;
 	Liste prec = NULL;
 
