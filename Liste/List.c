@@ -27,11 +27,11 @@ Liste insertHead(int x,Liste l){
 
 int isPresent(int x,Liste l){
 	 Liste temp = l;
-	 while(estVide(temp)!=1){
-		  if(tete(temp) == x){ 
+	 while(isEmpty(temp)!=1){
+		  if(head(temp) == x){ 
 			  return 1;
 		  }
-		  temp = queue(temp);
+		  temp = tail(temp);
 	 }
 	 return 0;
 }
@@ -39,9 +39,9 @@ int isPresent(int x,Liste l){
 Liste insertYAfterX(int x,int y,Liste l){ 
 	Liste temp = l;
 	int tours = 0;
-	while(estVide(temp)!= 1){ 
-		if(tete(temp)!=x){
-			temp = queue(temp);
+	while(isEmpty(temp)!= 1){ 
+		if(head(temp)!=x){
+			temp = tail(temp);
 		}
 		else{
 				temp->suivant = createNode(y,temp->suivant);
@@ -55,13 +55,13 @@ Liste insertTail(int x,Liste l){
 	Liste temp = l;
 	Liste result = createNode(x,NULL);
 
-	if(estVide(temp)){ 
+	if(isEmpty(temp)){ 
 		temp = result;
 		return temp;
 	}
 
-	while((estVide(queue(temp)))!= 1){
-		temp = queue(temp);
+	while((isEmpty(tail(temp)))!= 1){
+		temp = tail(temp);
 	}
 
 	temp->suivant = result;
@@ -73,14 +73,14 @@ Liste deleteX(int x,Liste l){
 	Liste temp = l;
 	Liste prec = NULL;
 
-	if(estVide(temp)){ 
+	if(isEmpty(temp)){ 
 		return l;
 	}else{
 
-		while(estVide(temp)!= 1){
-			 if(tete(temp) != x){
+		while(isEmpty(temp)!= 1){
+			 if(head(temp) != x){
  			 prec = temp;
-			 temp = queue(temp);
+			 temp = tail(temp);
 			 }
 			
 			else if(prec == NULL){
@@ -96,8 +96,7 @@ Liste deleteX(int x,Liste l){
 	return l;
 }
 
-
-void afficheListe(Liste l){ 
+void showList(Liste l){ 
 	Liste temp = l;
 	while(temp!=NULL){ 
 
@@ -106,4 +105,102 @@ void afficheListe(Liste l){
 	}
 	printf("\n");
 	printf("parcours terminer !\n");
+}
+
+
+Liste createITMode(int size){
+
+	Liste collection = NULL;	
+	int input;
+
+	for(int i=0;i<size;i++){
+		printf("Plz enter a value to push to the list: '-1' -> Exit \n");
+		scanf("%d",&input);
+		if(input == -1){ 
+			printf("++++++++++++++++++ \n");
+			printf("Abort All ... \n");
+			printf("++++++++++++++++++\n");
+			return collection;
+		}
+			collection = createNode(input,collection);
+	}
+
+	printf("++++++++++++++++++++++++\n");
+	printf("Collection created !\n");
+	printf("++++++++++++++++++++++++\n");
+
+return collection;
+}
+
+Liste createRecTMode(Liste l){
+	int x;
+	printf("Enter a value to push [-1] -> Exit \n");
+	scanf("%d",&x);
+	if(x == -1){
+		 return l;
+	}
+	else{
+		return createRecTMode(createNode(x,l));
+	}
+}
+
+Liste createRecNTMode(Liste l){ 
+	int x;
+	printf("Enter a value to push [-1] -> Exit \n");
+	scanf("%d",&x);
+	if(x == -1){ 
+		return l;
+	}
+	else{
+		return createNode(x,createRecNTMode(l));
+	}
+}
+
+int lastElement(Liste l){
+	Liste temp = l;
+	
+	while(isEmpty(tail(temp)) != 1){
+		  temp = tail(temp);
+	}
+
+	return head(temp);
+}
+
+Liste insertKPos(int x,int position,Liste l){ 
+	Liste temp = l;
+	while(position > 1){ 
+		temp = tail(temp);
+		position--;
+	}
+	temp->suivant = createNode(x,temp->suivant);
+	return l;
+}
+
+Liste doubleListe(Liste l){
+	Liste temp = l;
+	while(isEmpty(tail(temp)) != 1){
+		 temp->suivant = createNode(head(temp),temp->suivant);
+		 temp = tail(tail(temp));
+	}
+	return l;
+}
+
+
+int maxList(Liste l);
+int occurence(int x,Liste l);
+int search(int x,Liste l);
+Liste remdup(Liste l);
+
+
+void freeMemory(Liste l){
+	Liste temp = l;
+	Liste cell = NULL;
+	
+	while(isEmpty(temp) != 1){ 
+		cell = temp;
+		temp = tail(temp);
+		free(cell);
+	}
+
+	printf("Memory cleaned ! \n");
 }
