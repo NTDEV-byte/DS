@@ -24,6 +24,10 @@ Liste insertTail(int x,Liste l);
 Liste deleteX(int x,Liste l);
 void showList(Liste l);
 
+Liste createLoop(Liste l);
+int indexLoop(Liste l);
+void removeLoop(Liste *l);
+void freeMemory(Liste *l);
 //PII
 
 Liste createITMode(int size);
@@ -32,13 +36,33 @@ Liste createRecNTMode(Liste l);
 int lastElement(Liste l);
 Liste insertKPos(int x,int position,Liste l);
 Liste doubleListe(Liste l);
+int max(int a,int b);
 int maxList(Liste l);
 int occurence(int x,Liste l);
 int search(int x,Liste l);
 Liste remdup(Liste l);
+Liste remdupRec(Liste l);
+
+//PIII
+
+int lengthList(Liste l);
+int searchRec(int x,Liste l);
+int getElementAt(int pos,Liste l);
+int getElementSFE(int pos,Liste l);
+int getMiddleElement(Liste l);
+int isThereALoop(Liste l);
+int findLengthOfLoop(Liste l);
+int isPalindrome(Liste l);
+void swapNodes(Liste l);
+void moveLastNodeToFront(Liste l);
 
 
 
 
-void freeMemory(Liste l);
+
+
+
+
+
+
 #endif

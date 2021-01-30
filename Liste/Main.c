@@ -4,28 +4,28 @@
 
 Liste getDefaultList(){
     Liste collection = NULL;
-    collection = createNode(8,collection);
-       collection = createNode(15,collection);
-                  collection = createNode(20,collection);
-                        collection = createNode(30,collection);
-                 collection = createNode(45,collection);
-          collection = createNode(50,collection);
-     collection = createNode(150,collection);
+    collection = createNode(9,collection);
+       collection = createNode(8,collection);
+                  collection = createNode(7,collection);
+                        collection = createNode(6,collection);
+                 collection = createNode(5,collection);
+          collection = createNode(4,collection);
+     collection = createNode(3,collection);
+         collection = createNode(2,collection);
+             collection = createNode(1,collection);
 }
 
 int main(int argc,char **argv){
+
     Liste collection = NULL;
     collection = getDefaultList();
-    collection = doubleListe(collection);
     showList(collection);
  
- /**
+ 
+  /**
   * to avoid memory leaks 
   */
-    freeMemory(collection);
-
-
-    
+    freeMemory(&collection);
     return EXIT_SUCCESS;
 
 }
