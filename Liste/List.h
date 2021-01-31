@@ -23,11 +23,8 @@ Liste insertYAfterX(int x,int y,Liste l);
 Liste insertTail(int x,Liste l);
 Liste deleteX(int x,Liste l);
 void showList(Liste l);
-
-Liste createLoop(Liste l);
-int indexLoop(Liste l);
-void removeLoop(Liste *l);
 void freeMemory(Liste *l);
+
 //PII
 
 Liste createITMode(int size);
@@ -51,12 +48,21 @@ int getElementAt(int pos,Liste l);
 int getElementSFE(int pos,Liste l);
 int getMiddleElement(Liste l);
 int isThereALoop(Liste l);
+Liste createLoopAt(int pos,Liste l);
+int indexLoop(Liste l);
+void removeLoop(Liste *l);
 int findLengthOfLoop(Liste l);
 int isPalindrome(Liste l);
+
+
+// PIIII
 void swapNodes(Liste l);
 void moveLastNodeToFront(Liste l);
-
-
+Liste intersectionSortedList(Liste l1,Liste l2);
+Liste intersectionPointTWOLKL(Liste l1,Liste l2);
+Liste QuickSortLKL(Liste l);
+Liste pairAvantImpair(Liste l);
+Liste reverse(Liste l);
 
 
 

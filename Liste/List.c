@@ -106,8 +106,9 @@ void showList(Liste l){
 		printf("[%d]->",temp->valeur);
 		temp = temp->suivant;
 		if(temp == head){ 
-			printf("Warning Loop Detected !!! \n");
+			printf("Warning Loop Detected at %d !!! \n",indexLoop(temp));
 			loop++;
+			if(loop == 10) return;
 			printf("loop: %d\n",loop);
 		}
 	}
@@ -128,20 +129,6 @@ void freeMemory(Liste *l){
 
 	printf("Memory Free !\n");
 }
-
-Liste createLoop(Liste l){ 
-	Liste temp = l;
-	Liste head = l;
-
-	while(isEmpty(tail(temp)) != 1){
-		   temp = tail(temp);
-	}
-
-	temp->suivant = head;
-
-	return l;
-}
-
 
 
 //PII
@@ -364,10 +351,100 @@ int isThereALoop(Liste l){
 	 return (isEmpty(fast)) ? 0 : 1;
 }
 
+Liste createLoopAt(int pos,Liste l){ 
+	Liste temp = l;
+	Liste head = l;
 
+	while(pos > 0){
+		   temp = tail(temp);
+		   pos--;
+	}
 
-int findLengthOfLoop(Liste l);
-int isPalindrome(Liste l);
+	temp->suivant = head;
+
+	return l;
+}
+
+int indexLoop(Liste l){
+	Liste temp = l;
+	Liste fast = tail(tail(temp));
+	Liste slow = tail(temp);
+	int index = 0;
+
+	while(isEmpty(fast) != 1 && (!(slow == fast))){ 
+			fast =  tail(tail(fast));
+			slow = tail(slow);
+			index++;
+	}
+	 return index;
+}
+
+void removeLoop(Liste *l){
+	Liste temp = *l;
+	int loopAt = indexLoop(temp);
+	int index = loopAt;
+	while(loopAt > 1){
+		temp = tail(temp);
+		loopAt--;
+	}
+	printf("Loop removed at position %d\n",index);
+	temp->suivant = NULL;
+}
+
+int findLengthOfLoop(Liste l){
+	Liste temp  = l;
+
+	if(isThereALoop(temp)){
+		return indexLoop(temp);
+	}
+		// there is no loop
+	return 0;
+}
+/*
+*computers are getting powerful these days
+*/
+int isPalindrome(Liste l){ 
+	Liste headL = l;
+	Liste temp = l;
+	Liste beforeMid = NULL;
+	Liste afterMid = NULL;
+	int size = lengthList(temp);
+	int index = 0;
+
+	if(size % 2 == 0){
+		return 0;
+	}
+	else{
+		while(isEmpty(temp) != 1){ 
+			if(index < (size / 2)){
+				beforeMid = createNode(head(temp),beforeMid);
+			}
+			else{
+				if(index != (size / 2))
+				afterMid = createNode(head(temp),afterMid);
+			}
+			temp = tail(temp);
+			index++;
+		}
+		int bf = lengthList(beforeMid);
+		int af = lengthList(afterMid);
+
+		if(bf != af) return 0;
+		else{
+			while(isEmpty(afterMid) != 1){
+				 if(head(beforeMid) != head(afterMid)){
+					 return 0;
+				 }
+				 afterMid = tail(afterMid);
+				 beforeMid = tail(beforeMid);
+			}
+		return 1;
+		}
+}
+}
+
+// PIIII
+
 void swapNodes(Liste l);
 void moveLastNodeToFront(Liste l);
 
