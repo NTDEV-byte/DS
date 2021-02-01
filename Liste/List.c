@@ -445,12 +445,85 @@ int isPalindrome(Liste l){
 
 // PIIII
 
-void swapNodes(Liste l);
-void moveLastNodeToFront(Liste l);
+void moveLastNodeToFront(Liste *l){
+	Liste temp = *l;
+	Liste lastNode = NULL;
 
+	while(isEmpty(tail(tail(temp))) != 1){
+			temp = tail(temp);
+	}
+	//we save the adress of the last node 
+	lastNode = tail(temp);
+	// we make point the before last node to null otherwise it wont stop when we browse the list
+	temp->suivant = NULL;
 
+	//rewind 
+	temp = *l;
+	//point the next of the lastNode to the beginning of our list 
+	lastNode->suivant = temp;
+	// we move the lastNode  pointer to the start of our list
+	*l = lastNode;
+}
 
+Liste intersectionSortedList(Liste l1,Liste l2){
+Liste temp1 = l1;
+Liste temp2 = l2;
+Liste result = NULL;
+while(isEmpty(temp1) != 1){
+  	 while(isEmpty(temp2) != 1){ 
+			  if(head(temp1) == head(temp2)){ 
+					 result = createNode(head(temp1) , result);
+			   }
+				temp2 = tail(temp2);
+		  	}
+		   temp1 = tail(temp1);
+		   temp2 = l2;
+		}
+	return result;
+}
 
+/**
+ * 
+ * Liste swapNodesWithoutSwapData(Liste l,int x,int y){ 
+	Liste temp = l;
+	Liste n1,n2;
+
+	if(isPresent(x,temp) && isPresent(y,temp)){
+		 	while(isEmpty(temp) != 1){ 
+				  if(head(temp) == x){ 
+					  n1 = temp;
+				  }
+				  	if(head(temp) == y){ 
+						  n2  = temp;
+					  }
+			 }
+			
+			
+	 n1->suivant = NULL;
+	 n2->suivant = NULL;
+	 temp = l;
+
+	 
+		while(isEmpty(temp) != 1){ 
+			if(head(tail(temp)) == x){
+				 temp->suivant = n2;
+				 n2->suivant = temp->suivant->suivant;
+			}
+			if(head(tail(temp)) == y){
+				 temp->suivant = n1;
+				 n1->suivant = temp->suivant->suivant;
+			}
+		}
+
+		return l;
+	}
+	else{
+		printf("Cannot swipe x or y is missing \n");
+	}
+
+	return l;
+}
+ */ 
 
 
 
