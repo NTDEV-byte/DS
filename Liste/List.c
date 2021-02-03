@@ -482,9 +482,36 @@ while(isEmpty(temp1) != 1){
 	return result;
 }
 
-/**
- * 
- * Liste swapNodesWithoutSwapData(Liste l,int x,int y){ 
+Liste getElement(int x,Liste l){ 
+	Liste temp = l;
+	while(isEmpty(temp) != 1){
+			if(head(temp) == x){ 
+				return temp;
+			}
+			temp = tail(temp);
+	}
+	return NULL;
+}
+
+void intersectionPoint(Liste l1,Liste l2){ 
+	 Liste temp1 = l1;
+	 Liste temp2 = l2;
+	 Liste point = NULL;
+
+	while(isEmpty(temp1) != 1){
+		if(isPresent(head(temp1) , temp2)){
+			   point = getElement(head(temp1) , temp2);
+				if(point == temp1){ 
+					printf("Intersection Point !!! Element: %d\n" , head(temp1));
+					break;
+				}
+		}
+		temp1 = tail(temp1);
+	}
+
+}
+
+ Liste swapNodesWithoutSwapData(Liste l,int x,int y){ 
 	Liste temp = l;
 	Liste n1,n2;
 
@@ -523,7 +550,7 @@ while(isEmpty(temp1) != 1){
 
 	return l;
 }
- */ 
+
 
 
 

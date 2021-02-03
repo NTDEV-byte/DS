@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include "List.h"
+#include "Tester.h"
 
 Liste getDefaultList(){
     Liste collection = NULL;
@@ -15,31 +16,13 @@ Liste getDefaultList(){
              collection = createNode(1,collection);
 }
 
-Liste customize(){
-    Liste collection = NULL;
-    collection = createNode(1,collection);
-    collection = createNode(1,collection);
-       collection = createNode(2,collection);
-    collection = createNode(1,collection);
-      collection = createNode(1,collection);
-   return collection;
-}
-
-
+void intersectionPoint();
 int main(int argc,char **argv){
 
-    Liste c1 = NULL,c2 = NULL,res = NULL;
-       c1 = createRecTMode(c1);
-       c2 = createRecTMode(c2);
-       res = intersectionSortedList(c1,c2);
-          showList(c1);
-          showList(c2);
-          showList(res);
+testInstersectionPointTest();
 
-  /**
-  * to avoid memory leaks 
-  */
-   freeMemory(&c1);freeMemory(&c2);freeMemory(&res);
+
+  //  freeMemory(&c1);
     return EXIT_SUCCESS;
 
 }
