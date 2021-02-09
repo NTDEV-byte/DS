@@ -56,14 +56,14 @@ int isPalindrome(Liste l);
 
 
 // PIIII
-//Liste swapNodesWithoutSwapData(Liste l,int x,int y);
 void moveLastNodeToFront(Liste *l);
 Liste intersectionSortedList(Liste l1,Liste l2);
 Liste getElement(int x,Liste l);
 void intersectionPoint(Liste l1,Liste l2);
-Liste QuickSortLKL(Liste l);
-Liste pairAvantImpair(Liste l);
 Liste reverse(Liste l);
+//Liste QuickSortLKL(Liste l);
+//Liste pairAvantImpair(Liste l);
+//Liste swapNodesWithoutSwapData(Liste l,int x,int y);
 
 
 

@@ -508,9 +508,27 @@ void intersectionPoint(Liste l1,Liste l2){
 		}
 		temp1 = tail(temp1);
 	}
-
 }
 
+
+Liste reverse(Liste l){
+	Liste rev = NULL;
+	Liste tail = NULL;
+	Liste temp = l;
+
+	while(isEmpty(temp) != 1){
+
+		tail = temp->suivant;
+		temp->suivant = rev;
+		rev = temp;
+		temp = tail;
+	}
+
+	return rev;
+}
+
+
+/*
  Liste swapNodesWithoutSwapData(Liste l,int x,int y){ 
 	Liste temp = l;
 	Liste n1,n2;
@@ -551,7 +569,7 @@ void intersectionPoint(Liste l1,Liste l2){
 	return l;
 }
 
-
+*/
 
 
 

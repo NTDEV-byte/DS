@@ -16,13 +16,18 @@ Liste getDefaultList(){
              collection = createNode(1,collection);
 }
 
-void intersectionPoint();
 int main(int argc,char **argv){
 
-testInstersectionPointTest();
+  Liste collection = getDefaultList();
+  
+    showList(collection);
+
+    collection = reverse(collection);
+
+        showList(collection);
 
 
-  //  freeMemory(&c1);
+    freeMemory(&collection);
     return EXIT_SUCCESS;
 
 }

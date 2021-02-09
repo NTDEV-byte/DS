@@ -26,4 +26,23 @@ void testInstersectionPointTest(){
 
 }
 
+void reverseCollectionTest(){
+      Liste collection = NULL;
+
+      collection = createNode(5,collection);
+            collection = createNode(4,collection);
+                  collection = createNode(3,collection);
+                        collection = createNode(2,collection);
+      collection = createNode(1,collection);
+
+
+showList(collection);
+
+reverse(collection);
+
+showList(collection);
+
+freeMemory(&collection);
+}
+
 

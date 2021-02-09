@@ -4,5 +4,6 @@
 
 
 void testInstersectionPointTest();
+void reverseCollection();
 
 #endif
